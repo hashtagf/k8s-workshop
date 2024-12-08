@@ -22,11 +22,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: edit file with image
-        run: bash ./.bash/automate.bash
+      # - name: edit file with image
+      #   run: bash ./.bash/automate.bash
 
-      # - name: yq update image file
-      #   run: yq -i '.spec.template.spec.containers[0].image = "flhpktech/rust-demo:"+${{ inputs.image }}' ./deployments/rust-demo.yaml
+      - name: yq update image file
+        run: yq -i '.spec.template.spec.containers[0].image = "flhpktech/rust-demo:"+${{ inputs.image }}' ./deployments/rust-demo.yaml
 
       - name: Update Reprository
         working-directory: .
