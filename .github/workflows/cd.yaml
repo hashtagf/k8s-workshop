@@ -1,8 +1,8 @@
-# name: Update-Image
-# on: workflow_dispatch
-# jobs:
-#   update-image:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
+name: Update-Image
+on: workflow_dispatch
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
