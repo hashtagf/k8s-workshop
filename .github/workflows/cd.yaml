@@ -1,11 +1,20 @@
 name: Update-Image
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - custom-event
     inputs:
       image:
         description: "image for production"
         required: true
         default: "latest"
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       image:
+#         description: "image for production"
+#         required: true
+#         default: "latest"
 jobs:
   update-image:
     runs-on: ubuntu-24.04
