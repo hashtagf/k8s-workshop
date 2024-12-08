@@ -8,7 +8,9 @@ on:
         default: "latest"
 jobs:
   update-image:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
+      - name: Print inputs image
+        run: echo  image is ${{ inputs.image }}
       - name: Checkout
         uses: actions/checkout@v4
