@@ -1,5 +1,11 @@
 name: Update-Image
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "image for production"
+        required: true
+        default: "latest"
 jobs:
   update-image:
     runs-on: ubuntu-latest
