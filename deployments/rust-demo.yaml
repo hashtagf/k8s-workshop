@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rust-demo
+  name: rust-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rust-demo
+    spec:
+      containers:
+        - image: flhpktech/rust-demo:2.0.0
+          name: rust-demo
+          resources: {}
+status: {}

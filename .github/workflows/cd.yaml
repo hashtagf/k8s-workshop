@@ -1,0 +1,18 @@
+name: Update-Image
+on: workflow_dispatch
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Build and push
+        run: |
+          docker buildx build --platform linux/amd64,linux/arm64 -t flhpktech/rust-demo:2.0.0 .
+          docker push flhpktech/rust-demo:2.0.0
+      - name: Update image
+        run: |
+          sed -i 's|flhpktech/rust-demo:.*|flhpktech/rust-demo:2.0.0|' k8s-workshop/deployments/rust-demo.yaml
+          git config --global user.email "
