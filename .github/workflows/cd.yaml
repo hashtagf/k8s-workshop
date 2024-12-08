@@ -15,14 +15,21 @@ jobs:
 
       - name: export image to IMAGE
         run: export TAG_IMAGE=${{ inputs.image }}
+
+      - name: print $TAG_IMAGE
+        run: echo $TAG_IMAGE
+
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: edit file with image
         run: bash ./.bash/automate.bash
 
+      # - name: yq update image file
+      #   run: yq -i '.spec.template.spec.containers[0].image = "flhpktech/rust-demo:"+${{ inputs.image }}' ./deployments/rust-demo.yaml
+
       - name: Update Reprository
-        working-directory: k8s-workshop
+        working-directory: .
         run: |-
           git config --global user.email "flamezaxaou1@@gmail.com"
           git config --global user.name "hashtagf"
