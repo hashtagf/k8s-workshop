@@ -26,7 +26,7 @@ jobs:
       #   run: bash ./.bash/automate.bash
 
       - name: yq update image file
-        run: yq -i '.spec.template.spec.containers[0].image = "flhpktech/rust-demo:+${{ inputs.image }}"' ./deployments/rust-demo.yaml
+        run: yq -i '.spec.template.spec.containers[0].image = "flhpktech/rust-demo:${{ inputs.image }}"' ./deployments/rust-demo.yaml
 
       - name: Update Reprository
         working-directory: .
