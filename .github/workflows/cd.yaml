@@ -13,7 +13,7 @@ jobs:
       - name: Print inputs image
         run: echo  image is ${{ inputs.image }}
       - name: export image to IMAGE
-        run: export $TAG_IMAGE=${{ inputs.image }}
+        run: export TAG_IMAGE=${{ inputs.image }}
       - name: Checkout
         uses: actions/checkout@v4
       - name: edit file with image
